@@ -1,5 +1,5 @@
 ---
-- hosts: dev1
+- hosts: devgroup
   become: yes
   gather_facts: false
   tasks:
