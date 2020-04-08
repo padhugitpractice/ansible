@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
          
-          - name: install java
+          - name: install javaa
             apt: name=openjdk-8-jdk state=present
 
           - name: tomcat download
