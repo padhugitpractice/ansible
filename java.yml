@@ -1,0 +1,17 @@
+---
+- hosts: dev1
+  become: yes
+  gather_facts: false
+  tasks:
+         
+          - name: install java
+            apt: name=openjdk-8-jdk state=present
+
+          - name: tomcat download
+            get_url: url=https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.53/bin/apache-tomcat-8.5.53.tar.gz dest=/home/ubuntu
+
+          - name: extract tomcatfile
+            unarchive: src=/home/ubuntu/apache-tomcat-8.5.53.tar.gz dest=/home/ubuntu remote_src=yes
+
+          - name: start tomcat
+            shell: nohup /home/ubuntu/apache-tomcat-8.5.53/bin/startup.sh
